@@ -38,7 +38,8 @@ jobs:
       - name: Create Directories
         run: |
           # mkdir -p job_repo/prod/extraVars
-          mkdir -p prod/inventory/test.txt
+          mkdir -p job_repo/prod/inventory/test.txt
+          touch job_repo/prod/test123
           # mkdir -p job_repo/prod/deploymentManifest
 
       - name: path
