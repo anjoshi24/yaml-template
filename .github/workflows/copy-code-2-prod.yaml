@@ -39,6 +39,8 @@ jobs:
         run: |
           # mkdir -p job_repo/prod/extraVars
           mkdir -p home/runner/work/yaml-template/prod/inventory
+          touch home/runner/work/yaml-template/prod/anand.json
+          touch prod/aaanand.json
           # mkdir -p job_repo/prod/deploymentManifest
 
       - name: path
