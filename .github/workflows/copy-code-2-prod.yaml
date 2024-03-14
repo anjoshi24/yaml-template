@@ -65,12 +65,12 @@ jobs:
           case $choice in
             "extraVars")
               echo "Contents of non-prod/extraVars/ directory:"
-              ls -l non-prod/extraVars/
-              if [ -d "non-prod/extraVars/" ]; then
-                cp non-prod/extraVars/*.json prod/extraVars/ || (echo "Failed to copy JSON files." && exit 1)
+              ls -l ./non-prod/extraVars/
+              if [ -d "./non-prod/extraVars/" ]; then
+                cp ./non-prod/extraVars/*.json ./prod/extraVars/ || (echo "Failed to copy JSON files." && exit 1)
                 echo "Inputs updated for $choice"
               else
-                echo "Directory non-prod/extraVars/ does not exist."
+                echo "Directory ./non-prod/extraVars/ does not exist."
                 exit 1
               fi
               ;;
