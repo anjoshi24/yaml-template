@@ -40,9 +40,6 @@ jobs:
           # mkdir -p job_repo/prod/extraVars
           mkdir -p prod/inventory 
           # mkdir -p job_repo/prod/deploymentManifest
-          git add inventory
-          git commit -m "Create new directory"
-          git push origin HEAD:main
 
       - name: path
         run: |
