@@ -48,25 +48,16 @@ jobs:
       - name: path
         run: |
           pwd
-      - name: Update Inputs
+
+      - name: Validate Input
+        id: validate_input
         run: |
           choice="${{ github.event.inputs.choice }}"
-          case $choice in
-            "extraVars")
-              cp non-prod/extraVars/*.json prod/extraVars/
-              ;;
-            "inventory")
-              cp non-prod/inventory/*.json prod/inventory/
-              ;;
-            "deploymentManifest")
-              cp non-prod/deploymentManifest/*.json prod/deploymentManifest/
-              ;;
-            *)
-              echo "Invalid choice"
-              exit 1
-              ;;
-          esac
-          echo "Inputs updated for $choice"
+          if [[ $choice != "extraVars" && $choice != "inventory" && $choice != "deploymentManifest" ]]; then
+            echo "Invalid choice. Please choose one of: extraVars, inventory, deploymentManifest"
+            exit 1
+          fi
+          echo "::set-output name=CHOICE::$choice"
 
       - name: Git Add
         run: git add .
