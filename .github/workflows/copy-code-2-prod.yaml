@@ -39,13 +39,11 @@ jobs:
           ref: new_branch
           path: job_repo
 
-      - name: Create Directories
+      - name: Create prod/ directories if not exist
         run: |
-           ls prod/
-          # mkdir -p extraVars/readme.txt
-          # mkdir -p prod/extraVars/
-          # mkdir -p home/runner/work/yaml-template/prod/inventory
-          # mkdir -p job_repo/prod/deploymentManifest
+          mkdir -p prod/extraVars
+          mkdir -p prod/inventory
+          mkdir -p prod/deploymentManifest
 
       - name: path
         run: |
