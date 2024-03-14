@@ -11,6 +11,10 @@ on:
           extraVars: 'Update extraVars'
           inventory: 'Update inventory'
           deploymentManifest: 'Update deploymentManifest'
+  push:
+    paths:
+      - 'prod/*'
+      - 'non-prod/*'
 
 jobs:
   update_and_merge:
