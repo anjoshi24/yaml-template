@@ -59,6 +59,27 @@ jobs:
           fi
           echo "::set-output name=CHOICE::$choice"
 
+      - name: Update Dropdown Inputs
+        id: update_inputs
+        run: |
+          choice="${{ steps.validate_input.outputs.CHOICE }}"
+          case $choice in
+            "extraVars")
+              cp non-prod/extraVars/*.json prod/extraVars/
+              ;;
+            "inventory")
+              cp non-prod/inventory/*.json prod/inventory/
+              ;;
+            "deploymentManifest")
+              cp non-prod/deploymentManifest/*.json prod/deploymentManifest/
+              ;;
+            *)
+              echo "Invalid choice"
+              exit 1
+              ;;
+          esac
+          echo "Inputs updated for $choice"
+
       - name: Git Add
         run: git add .
 
