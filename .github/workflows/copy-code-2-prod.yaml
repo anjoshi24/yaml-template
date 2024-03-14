@@ -37,8 +37,8 @@ jobs:
 
       - name: Create Directories
         run: |
-          cd prod/
-          - mkdir -p extraVars/readme.txt
+          # cd prod/
+          # - mkdir -p extraVars/readme.txt
           # mkdir -p prod/extraVars/
           # mkdir -p home/runner/work/yaml-template/prod/inventory
           # mkdir -p job_repo/prod/deploymentManifest
