@@ -37,11 +37,10 @@ jobs:
 
       - name: Create Directories
         run: |
-          touch prod/aaanand.json
   
-          # mkdir -p job_repo/prod/extraVars
-          # mkdir -p home/runner/work/yaml-template/prod/inventory
-          # mkdir -p job_repo/prod/deploymentManifest
+          mkdir -p job_repo/prod/extraVars/
+          #mkdir -p home/runner/work/yaml-template/prod/inventory
+          #mkdir -p job_repo/prod/deploymentManifest
 
       - name: path
         run: |
