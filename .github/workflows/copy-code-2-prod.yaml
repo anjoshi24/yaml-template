@@ -26,7 +26,7 @@ jobs:
         with:
           branch: new_branch
         env:
-          GITHUB_TOKEN: ${{ secrets.AN_TEST_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.WORK_TEST_TOKEN }}
 
       - name: Checkout Repository
         uses: actions/checkout@v3
