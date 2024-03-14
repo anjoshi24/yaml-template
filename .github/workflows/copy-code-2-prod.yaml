@@ -85,7 +85,7 @@ jobs:
               exit 1
               ;;
           esac
-        shell: /usr/bin/bash -e
+        shell: bash
 
 
       - name: Git Add
