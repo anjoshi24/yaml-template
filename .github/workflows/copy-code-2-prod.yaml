@@ -59,26 +59,34 @@ jobs:
           fi
           echo "::set-output name=CHOICE::$choice"
 
-      - name: Update Dropdown Inputs
-        id: update_inputs
+      - name: Run Script
         run: |
-          choice="${{ steps.validate_input.outputs.CHOICE }}"
+          choice="extraVars"
           case $choice in
             "extraVars")
-              cp non-prod/extraVars/*.json prod/extraVars/
+              echo "Contents of non-prod/extraVars/ directory:"
+              ls -l non-prod/extraVars/
+              if [ -d "non-prod/extraVars/" ]; then
+                cp non-prod/extraVars/*.json prod/extraVars/ || (echo "Failed to copy JSON files." && exit 1)
+                echo "Inputs updated for $choice"
+              else
+                echo "Directory non-prod/extraVars/ does not exist."
+                exit 1
+              fi
               ;;
             "inventory")
-              cp non-prod/inventory/*.json prod/inventory/
+              # Similarly handle other cases
               ;;
             "deploymentManifest")
-              cp non-prod/deploymentManifest/*.json prod/deploymentManifest/
+              # Similarly handle other cases
               ;;
             *)
               echo "Invalid choice"
               exit 1
               ;;
           esac
-          echo "Inputs updated for $choice"
+        shell: /usr/bin/bash -e
+
 
       - name: Git Add
         run: git add .
