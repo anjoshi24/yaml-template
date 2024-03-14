@@ -38,8 +38,7 @@ jobs:
       - name: Create Directories
         run: |
           # mkdir -p job_repo/prod/extraVars
-          mkdir -p job_repo/prod/inventory/test.txt
-          touch job_repo/prod/test123
+          mkdir -p home/runner/work/yaml-template/yaml-template/prod/inventory
           # mkdir -p job_repo/prod/deploymentManifest
 
       - name: path
