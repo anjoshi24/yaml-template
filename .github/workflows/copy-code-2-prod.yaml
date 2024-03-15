@@ -44,7 +44,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd ./job_repo
-          wbranch=`git branch`
+          wbranch="`git branch`"
           printf "Current branch is ->"
           printf $wbranch
 
