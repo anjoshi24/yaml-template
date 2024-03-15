@@ -43,7 +43,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          mkdir -p job_repo/test #/extraVars; touch .gitkeep
+          mkdir -p job_repo/test; touch job_repo/test/.gitkeep; cat "hello" > job_repo/test/foo.txt #/extraVars
           # mkdir -p job_repo/prod/inventory; touch .gitkeep
           # mkdir -p job_repo/prod/deploymentManifest; touch .gitkeep
 
