@@ -39,6 +39,13 @@ jobs:
           ref: new_branch
           path: job_repo
 
+      - name: PWD
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          wbranch=`git branch`
+          echo $wbranch
+
       - name: Create prod/ directories if not exist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
