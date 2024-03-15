@@ -43,9 +43,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          mkdir -p job_repo/prod/extraVars
-          mkdir -p job_repo/prod/inventory
-          mkdir -p job_repo/prod/deploymentManifest
+          mkdir -p job_repo/prod/extraVars; touch foo.txt
+          mkdir -p job_repo/prod/inventory; touch foo.txt
+          mkdir -p job_repo/prod/deploymentManifest; touch foo.txt
 
       - name: path
         run: |
