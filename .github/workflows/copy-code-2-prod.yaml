@@ -40,10 +40,12 @@ jobs:
           path: job_repo
 
       - name: Create prod/ directories if not exist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          mkdir -p prod/extraVars
-          mkdir -p prod/inventory
-          mkdir -p prod/deploymentManifest
+          mkdir -p job_repo/prod/extraVars
+          mkdir -p job_repo/prod/inventory
+          mkdir -p job_repo/prod/deploymentManifest
 
       - name: path
         run: |
