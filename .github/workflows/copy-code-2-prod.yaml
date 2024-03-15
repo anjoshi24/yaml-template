@@ -45,8 +45,8 @@ jobs:
         run: |
           cd ./job_repo
           wbranch="`git branch`"
-          printf "Current branch is ->"
-          printf "$wbranch"
+          echo "Current branch is ->"
+          echo "$wbranch"
 
       - name: Create prod/ directories if not exist
         env:
